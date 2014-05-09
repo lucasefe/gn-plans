@@ -13,13 +13,14 @@ module Plan
     "hellapp"
   end
   
-  template "AppServer", "#{Plan.name}/lib/#{Plan.name}/app.rb"
-  template "AppRoot",   "#{Plan.name}/lib/#{Plan.name}.rb"
-  template "ConfigRu",  "#{Plan.name}/config.ru"
-  template "Env",       "#{Plan.name}/.env"
-  template "Gemfile",   "#{Plan.name}/Gemfile"
-  template "GitIgnore", "#{Plan.name}/.gitignore"
-  template "Procfile",  "#{Plan.name}/Procfile"
-  template "Rakefile",  "#{Plan.name}/Rakefile"
+  template "AppServer",   "#{Plan.name}/lib/#{Plan.name}/app.rb"
+  template "AppRoot",     "#{Plan.name}/lib/#{Plan.name}.rb"
+  template "ConfigRu",    "#{Plan.name}/config.ru"
+  template "Env",         "#{Plan.name}/.env"
+  template "Gemfile",     "#{Plan.name}/Gemfile"
+  template "GitIgnore",   "#{Plan.name}/.gitignore"
+  template "Procfile",    "#{Plan.name}/Procfile"
+  template "Rakefile",    "#{Plan.name}/Rakefile"
+  template "RubyVersion", "#{Plan.name}/.ruby-version"
 
 end
