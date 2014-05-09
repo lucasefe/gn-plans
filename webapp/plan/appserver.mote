@@ -6,7 +6,7 @@ require 'rack/protection'
 require 'rack/reloader'
 require 'securerandom'
 
-module {{Plan.class_name}}
+module {{Plan.constant_name}}
   class App < Cuba
     
     use Rack::Session::Cookie, secret: SecureRandom.hex(64)

@@ -6,4 +6,4 @@ require 'rack/deflater'
 require '{{Plan.name}}/app'
 
 use Rack::Deflater
-run {{Plan.class_name}}::App
+run {{Plan.constant_name}}::App
