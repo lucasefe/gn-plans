@@ -1,3 +1,7 @@
 module {{Plan.constant_name}}
-  
+  extend self
+
+  def configure
+    Dir.glob('./initializers/*').sort.each { |r| require r }
+  end
 end

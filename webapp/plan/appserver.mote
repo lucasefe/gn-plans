@@ -1,29 +1,20 @@
-require 'cuba'
-require 'cuba/prelude'
-require 'cuba/render'
-require 'cuba/text_helpers'
-require 'rack/protection'
-require 'rack/reloader'
-require 'securerandom'
+require '{{Plan.name}}/route'
+require 'rack/static'
 
 module {{Plan.constant_name}}
-  class App < Cuba
-    
-    use Rack::Session::Cookie, secret: SecureRandom.hex(64)
-    use Rack::Protection
-    use Rack::Reloader
-   
-    plugin Cuba::Render
-    plugin Cuba::Prelude
-    plugin Cuba::TextHelpers
+  class App < Route
 
-    settings[:render][:template_engine] = "slim"
-    settings[:render][:views] = File.join(Dir.pwd, 'lib', '{{Plan.name}}', 'views')
+    use Rack::Static, root: 'public', urls: [
+      "/assets/stylesheets",
+      "/assets/fonts",
+      "/assets/javascripts"
+    ]
 
-    define do 
-      on do 
-        res.write "Good to go. "
+    define do
+      on root do
+        render 'index'
       end
     end
+
   end
 end

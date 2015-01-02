@@ -7,5 +7,6 @@ task :console do
   require 'pry'
   require '{{Plan.name}}'
   ARGV.clear
+  {{Plan.constant_name}}.configure
   Pry.start
 end

@@ -1,0 +1,32 @@
+require 'cuba'
+require 'cuba/prelude'
+require 'cuba/render'
+require 'cuba/text_helpers'
+require 'cuba/with'
+require 'rack/protection'
+require 'rack/reloader'
+require 'securerandom'
+require 'slim'
+
+module {{Plan.constant_name}}
+  class Route < Cuba
+
+    use Rack::Session::Cookie, secret: SecureRandom.hex(64)
+    use Rack::Protection
+    use Rack::Reloader
+
+    plugin Cuba::Render
+    plugin Cuba::Prelude
+    plugin Cuba::TextHelpers
+    plugin Cuba::With
+
+    settings[:render][:template_engine] = "slim"
+    settings[:render][:views] = File.join(Dir.pwd, 'lib', '{{Plan.name}}', 'views')
+
+    def params
+      req.params
+    end
+
+  end
+
+end

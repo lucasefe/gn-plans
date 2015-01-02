@@ -1,9 +1,10 @@
 $LOAD_PATH.unshift File.join(Dir.pwd, 'lib')
 require 'bundler'
 Bundler.require
+require '{{Plan.name}}'
 
 require 'rack/deflater'
-require '{{Plan.name}}/app'
-
 use Rack::Deflater
+
+require '{{Plan.name}}/app'
 run {{Plan.constant_name}}::App
